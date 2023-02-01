@@ -9,23 +9,33 @@
 # Input: 5 -> 5 1 6 5 9
 # Output: 1 9
 
-# watermelon_number = int(input('Введите количество арбузов: '))
-# watermelon_max = 0
-# watermelon_min = 0
-# watermelon_temp = 0
+# Введение данных и переменных
 
-# while watermelon_number > 0:
-#     watermelon_weight = int(input('Введите вес арбузов: '))
-#     watermelon_number -= 1
-#     watermelon_temp = watermelon_weight
-#     if watermelon_weight > watermelon_temp:
-#         watermelon_max = watermelon_weight
-#     else:
-#         watermelon_min = watermelon_weight
+watermelon_number = int(input('Введите количество арбузов: '))
+watermelon_max = 0
+watermelon_min = 3000000
+watermelon_temp = 0
 
-#     print('макс', watermelon_max, 'мин', watermelon_min, 'temp', watermelon_temp)
+# Основной цикл по счетчику
 
-# watermelon_list = []
-watermelon_list = list(map(int, input('Введите вес арбузов через пробел: ').split()))
-watermelon_list.sort()
-print('Наименьший арбуз -',watermelon_list[0], 'Наибольший арбуз -',watermelon_list[-1])
+while watermelon_number > 0:
+    watermelon_weight = int(input('Введите вес арбуза по одному, через Enter! (вес арбуза не может превышать 3 млн!): '))
+    watermelon_number -= 1
+    # Проверка максимального-----
+    if watermelon_weight > watermelon_max:
+        watermelon_max = watermelon_weight
+        # Дополнительная проверка на случай если первый арбуз наименьший-----
+        if watermelon_min > watermelon_max:
+            watermelon_min = watermelon_max
+    # Проверка минимального----- 
+    elif watermelon_weight < watermelon_min: 
+        watermelon_min = watermelon_weight
+        # Дополнительная проверка-----
+        if watermelon_min > watermelon_max:
+            watermelon_min = watermelon_max
+
+# Вывод данных 
+ 
+print(f'Арбуз для Ивана Васильевича - {watermelon_max}. Арбуз для тёщи - {watermelon_min}.')
+
+

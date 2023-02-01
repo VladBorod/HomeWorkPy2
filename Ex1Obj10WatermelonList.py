@@ -9,6 +9,10 @@
 # Input: 5 -> 5 1 6 5 9
 # Output: 1 9
 
+# Ввод списка чарез пробел
+
 watermelon_list = list(map(int, input('Введите вес арбузов через пробел: ').split()))
+# Быстрая сортировка списка встроенной функцией-----
 watermelon_list.sort()
+# Вывод данных-----
 print('Наименьший арбуз -',watermelon_list[0], 'Наибольший арбуз -',watermelon_list[-1])
